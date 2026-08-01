@@ -10,10 +10,12 @@ void Renderer::render() {
 
     camera.BeginMode();
 
-    DrawGrid(20, 1.0f);
+    DrawGrid(30, 1.0f);
 
-    for (auto& planet : world.bodies)
+    for (auto& planet : world.bodies) {
         DrawModel(planet.model, planet.position, planet.scale, planet.color);
+        DrawModelWires(planet.model, planet.position, planet.scale, BLACK);
+    }
 
     camera.EndMode();
 

@@ -5,7 +5,7 @@ class Controller {
 public:
   World &world;
 
-  Controller(World &world) : world(world) {}
+  Controller(World &w) : world(w) {}
 
   void update();
 };

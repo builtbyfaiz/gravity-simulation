@@ -6,6 +6,7 @@
 int main() {
   raylib::Window window(1280, 800, "");
   SetTargetFPS(60);
+  DisableCursor();
 
   CelestialBody planet;
   planet.model = LoadModelFromMesh(GenMeshSphere(2.0f, 16, 16)); 
@@ -21,6 +22,8 @@ int main() {
     controller.update();
     simulator.simulate();
     renderer.render();  
+
+    if(IsKeyPressed(KEY_ESCAPE)) EnableCursor();
   }
 
   return 0;
