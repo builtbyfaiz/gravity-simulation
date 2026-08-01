@@ -16,10 +16,10 @@ int main() {
 
   Renderer renderer(world);
   Simulator simulator(world);
-  Controller controller(world);
+  Controller controller(world, renderer, simulator);
 
   while (!window.ShouldClose()) {
-    controller.update();
+    controller.control();
     simulator.simulate();
     renderer.render();  
 

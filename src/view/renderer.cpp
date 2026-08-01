@@ -3,7 +3,7 @@
 // Render world
 void Renderer::render() {
     
-    camera.Update(CAMERA_FREE);
+    if(world.camMode) camera.Update(CAMERA_FREE);
 
     BeginDrawing();
     ClearBackground(RAYWHITE);

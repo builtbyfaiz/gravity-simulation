@@ -22,24 +22,26 @@ public:
 
     void addMass(float mass);
     void addRadius(float radius);
-
+    void addVelocity(raylib::Vector3 velocity);
+    
     void setScale(float scale);
 
     // Constructor
     CelestialBody(
-        float           m  = 1.0f,
-        float           r  = 1.0f,
-        Color           c  = RED,
-        raylib::Vector3 p  = {0, 0, 0},
-        raylib::Vector3 rt = {0, 0, 0},
-        float           s  = 1.0f)
+        float           mass  = 1.0f,
+        float           radius  = 1.0f,
+        Color           color  = RED,
+        raylib::Vector3 position  = {0, 0, 0},
+        raylib::Vector3 rotation = {0, 0, 0},
+        raylib::Vector3 velocity  = {0, 0, 0},
+        float           scale  = 1.0f)
         
-        : mass(m),
-          color(c),
-          scale(s),
-          radius(r),
-          position(p),
-          rotation(rt),
-          velocity((raylib::Vector3){0, 0, 0}),
+        : mass(mass),
+          color(color),
+          scale(scale),
+          radius(radius),
+          position(position),
+          rotation(rotation),
+          velocity(velocity),
           model(LoadModelFromMesh(GenMeshSphere(1.0f, 16, 16))){}
 };

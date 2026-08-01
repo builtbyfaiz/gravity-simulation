@@ -22,7 +22,12 @@ void CelestialBody::addMass(float massDelta)
 void CelestialBody::addRadius(float radiusDelta) 
 {
     radius += radiusDelta;
-};
+}
+
+// Increases or Decreases velocity from Body's velocity
+void CelestialBody::addVelocity(raylib::Vector3 velocityDelta) {
+    velocity += velocityDelta;
+}
 
 // Sets body's visual scale, This does not affect physics.
 void CelestialBody::setScale(float s) 
