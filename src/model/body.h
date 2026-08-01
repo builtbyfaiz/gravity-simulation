@@ -1,25 +1,45 @@
 #pragma once
 #include "raylib-cpp.hpp"
 
-class Body {
+class CelestialBody {
 public:
-  // Mesh
-  raylib::Model model = LoadModelFromMesh(GenMeshSphere(2.0f, 16, 16));
+    // Render
+    Model model;
+    Color color;
 
-  // Transform
-  raylib::Vector3 position;
-  raylib::Vector3 rotation;
-  raylib::Vector3 scale;
+    // Transform
+    raylib::Vector3 rotation;
+    float scale;
 
-  // Physics
-  float mass;
-  float radius;
+    // Physics
+    float mass;
+    float radius;
+    raylib::Vector3 position;
+    raylib::Vector3 velocity;
 
-  void move(raylib::Vector3 movementDelta);
-  void rotate(raylib::Vector3 rotationDelta);
+    void move(raylib::Vector3 movementDelta);
+    void rotate(raylib::Vector3 rotationDelta);
 
-  void addMass(float mass);
-  void addRadius(float radius);
+    void addMass(float mass);
+    void addRadius(float radius);
 
-  void setScale(raylib::Vector3 scale);
+    void setScale(float scale);
+
+    // Constructor
+    CelestialBody(
+        float           mass     = 1.0f,
+        float           radius   = 1.0f,
+        Color           color    = RED,
+        raylib::Vector3 position = {0, 0, 0},
+        raylib::Vector3 rotation = {0, 0, 0},
+        float           scale    = 1.0f) 
+        
+        : mass(mass),
+          color(color),
+          scale(scale),
+          radius(radius),
+          position(position),
+          rotation(rotation),
+          velocity((raylib::Vector3){0, 0, 0}),
+          model(LoadModelFromMesh(GenMeshSphere(1.0f, 16, 16))){}
 };

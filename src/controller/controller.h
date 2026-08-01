@@ -1,6 +1,11 @@
 #pragma once
+#include <world.h>
 
-class Controller 
-{
-    Controller();
+class Controller {
+public:
+  World &world;
+
+  Controller(World &world) : world(world) {}
+
+  void update();
 };

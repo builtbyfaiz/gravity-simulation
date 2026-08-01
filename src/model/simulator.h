@@ -1,6 +1,11 @@
 #pragma once
+#include "world.h"
 
 class Simulator {
-    World &world;
-    Simulator();
+public:
+  World &world;
+
+  Simulator(World &world) : world(world) {}
+
+  void simulate(); // Simulates gravitational forces between everything
 };
