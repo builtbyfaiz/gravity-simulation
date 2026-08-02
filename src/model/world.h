@@ -1,14 +1,22 @@
 #pragma once
 #include "body.h"
+
 #include <vector>
 
-class World {
-public:
-  bool camMode = true;
-  std::vector<CelestialBody> bodies;
 
-  void toggleCamMode();
+class World
+{
+  public:
+    int  selectedIndex = -1;
+    bool camMode       = true;
 
-  void addBody(CelestialBody body);
-  
+    std::vector<CelestialBody> bodies;
+
+    void toggleCamMode();
+
+    void addBody(CelestialBody body);
+
+    CelestialBody &getSelected(); // Returns reference to selected celestial body
+
+    World() {}
 };
