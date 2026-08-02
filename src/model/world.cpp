@@ -16,4 +16,12 @@ void World::addBody(CelestialBody body)
     selectedIndex++;
 }
 
-CelestialBody &World::getSelected() { return bodies[selectedIndex]; }
+CelestialBody &World::getSelected() 
+{
+    return bodies[selectedIndex]; 
+}
+
+void World::changeTarget() {
+    selectedIndex++;
+    selectedIndex = selectedIndex % bodies.size();
+}

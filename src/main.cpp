@@ -8,11 +8,13 @@ int main() {
   SetTargetFPS(60);
   DisableCursor();
 
-  CelestialBody planet;
+  CelestialBody planet, moon;
   planet.model = LoadModelFromMesh(GenMeshSphere(2.0f, 16, 16)); 
+  moon.model = LoadModelFromMesh(GenMeshSphere(1.0f, 16, 16)); 
   
   World world;
   world.addBody(planet);
+  world.addBody(moon);
 
   Renderer renderer(world);
   Simulator simulator(world);

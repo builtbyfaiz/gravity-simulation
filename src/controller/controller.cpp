@@ -15,6 +15,8 @@ void Controller::handleInput()
 
         if (IsKeyDown(KEY_E)) deltaV.SetY(controlSpeed);
         if (IsKeyDown(KEY_Q)) deltaV.SetY(-controlSpeed);
+
+        if (IsKeyPressed(KEY_T)) world.changeTarget();
     }
 
     world.getSelected().addVelocity(deltaV);
