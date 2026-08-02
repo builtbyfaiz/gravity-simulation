@@ -14,4 +14,6 @@ public:
   Renderer(World &w) : world(w) {};
 
   void render();
+
+  std::string toString(const raylib::Vector3 &vector3); // Vector3 to String
 };
