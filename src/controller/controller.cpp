@@ -1,30 +1,31 @@
 #include "controller.h"
 
-void Controller::handleInput() {
+void Controller::handleInput()
+{
 
     deltaV = (Vector3){0, 0, 0};
 
-    if(!world.camMode) {
+    if (!world.camMode)
+    {
         if (IsKeyDown(KEY_W)) deltaV.SetZ(-controlSpeed);
-        if (IsKeyDown(KEY_S)) deltaV.SetZ( controlSpeed);
+        if (IsKeyDown(KEY_S)) deltaV.SetZ(controlSpeed);
 
         if (IsKeyDown(KEY_A)) deltaV.SetX(-controlSpeed);
-        if (IsKeyDown(KEY_D)) deltaV.SetX( controlSpeed);
+        if (IsKeyDown(KEY_D)) deltaV.SetX(controlSpeed);
 
-        if (IsKeyDown(KEY_E)) deltaV.SetY( controlSpeed);
+        if (IsKeyDown(KEY_E)) deltaV.SetY(controlSpeed);
         if (IsKeyDown(KEY_Q)) deltaV.SetY(-controlSpeed);
     }
 
-    target.addVelocity(deltaV);
+    world.getSelected().addVelocity(deltaV);
 
-    if(IsKeyPressed(KEY_C)) world.toggleCamMode();
+    if (IsKeyPressed(KEY_C)) world.toggleCamMode();
 }
 
-void Controller::update() {
-    
-}
+void Controller::update() {}
 
-void Controller::control() {
+void Controller::control()
+{
     handleInput();
     update();
 }
