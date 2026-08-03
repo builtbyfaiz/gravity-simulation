@@ -243,7 +243,7 @@ if (downloadRaylib) then
         includedirs {raylib_dir .. "/src" }
         externalincludedirs { raylibcpp_dir .. "/include" }
 
-        flags { "ShadowedVariables"}
+        -- flags { "ShadowedVariables"}
         platform_defines()
 
         filter "action:vs*"

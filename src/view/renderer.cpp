@@ -2,6 +2,7 @@
 
 #include <string>
 #include <vector>
+#include <iostream>
 
 // Render world
 void Renderer::render()
@@ -16,11 +17,26 @@ void Renderer::render()
     camera.BeginMode();
 
     DrawGrid(30, 1.0f);
-
+    
     for (auto &planet : world.bodies)
     {
-        DrawModel(planet.model, planet.position, planet.scale, planet.color);
-        DrawModelWires(planet.model, planet.position, planet.scale, BLACK);
+        renderPosition = planet.position * world.renderScale;
+        renderRadius.x = planet.radius   * world.renderScale * world.planetScale;
+
+        renderRadius.y = renderRadius.x;
+        renderRadius.z = renderRadius.x;
+
+        // planet.model.transform = MatrixScale(renderRadius.x, renderRadius.y, renderRadius.z);
+
+        DrawModelEx     (planet.model, renderPosition, {0, 1, 0}, 0.0, renderRadius, planet.color);
+        DrawModelWiresEx(planet.model, renderPosition, {0, 1, 0}, 0.0, renderRadius, WHITE); 
+
+        std::cout << "Px:" << renderPosition.x << "\n";
+        std::cout << "Py:" << renderPosition.y << "\n";
+        std::cout << "Pz:" << renderPosition.z << "\n\n";
+        std::cout << "Rx:" << renderRadius.x   << "\n";
+        std::cout << "Ry:" << renderRadius.y   << "\n";
+        std::cout << "Rz:" << renderRadius.z   << "\n";
     }
 
     camera.EndMode();
@@ -48,22 +64,22 @@ std::string Renderer::toString(const raylib::Vector3& v)
     std::string y = std::to_string(v.y);
     std::string z = std::to_string(v.z);
 
-    std::string sx, sy, sz; // Empty Shells to then store trunctuated Numbers
+    // std::string sx, sy, sz; // Empty Shells to then store trunctuated Numbers
 
-    sx += x[0];
-    sx += x[1];
-    sx += x[2];
-    sx += x[3];
+    // sx += x[0];
+    // sx += x[1];
+    // sx += x[2];
+    // sx += x[3];
 
-    sy += y[0];
-    sy += y[1];
-    sy += y[2];
-    sy += y[3];
+    // sy += y[0];
+    // sy += y[1];
+    // sy += y[2];
+    // sy += y[3];
 
-    sz += z[0];
-    sz += z[1];
-    sz += z[2];
-    sz += z[3];
+    // sz += z[0];
+    // sz += z[1];
+    // sz += z[2];
+    // sz += z[3];
 
-    return sx + ", " + sy + ", " + sz;
+    return x + ", " + y + ", " + z;
 }

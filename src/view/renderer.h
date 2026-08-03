@@ -4,6 +4,8 @@
 class Renderer {
 public:
   World &world;
+
+  raylib::Vector3 renderPosition{0,0,0}, renderRadius{0,0,0}; // Planet attributes on render scale
   
   raylib::Camera3D camera{raylib::Vector3{0.0f, 15.0f, 15.0f},  // position
                           raylib::Vector3{0.0f, 0.0f, 0.0f},    // target

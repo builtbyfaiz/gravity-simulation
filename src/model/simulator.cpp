@@ -20,7 +20,7 @@ void Simulator::simulate()
                 continue;
 
             // Gravitational acceleration = r hat * constant-G * m2/r^2
-            planet.acceleration += displacement.Normalize() * (0.05f * (other.mass / (distance * distance)));
+            planet.acceleration += displacement.Normalize() * (G * (other.mass / (distance * distance)));
         }
     }
 

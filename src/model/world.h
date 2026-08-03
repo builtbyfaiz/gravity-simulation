@@ -8,7 +8,11 @@ class World
 {
   public:
     int  selectedIndex = -1;
-    bool camMode       = true;
+
+    // Render Settings
+    bool  camMode     = true;
+    float renderScale = 1.0/20000000.0f;  // scale astronomical distances down to the screen
+    float planetScale = 10.0f;            // exaggerate planets
 
     std::vector<CelestialBody> bodies;
 
