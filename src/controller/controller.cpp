@@ -7,6 +7,9 @@ void Controller::handleInput()
 
     if (!world.camMode)
     {
+        if (IsKeyPressed(KEY_LEFT_SHIFT)) controlSpeed *= 2.0;
+        if (IsKeyPressed(KEY_SPACE))      controlSpeed /= 2.0;
+
         if (IsKeyDown(KEY_W)) deltaV.SetZ(-controlSpeed);
         if (IsKeyDown(KEY_S)) deltaV.SetZ(controlSpeed);
 
