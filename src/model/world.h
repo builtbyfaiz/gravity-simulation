@@ -9,10 +9,11 @@ class World
   public:
     int  selectedIndex = -1;
 
-    // Render Settings
-    bool  camMode     = true;
-    float renderScale = 1.0/20000000.0f;  // scale astronomical distances down to the screen
-    float planetScale = 10.0f;            // exaggerate planets
+    // Application Settings, I don't know if I should store them inside world here.
+    bool   camMode         = true;
+    float  renderScale     = 1.0/30000000.0f;  // scale astronomical distances down to the screen
+    float  planetScale     = 1.0f;             // exaggerate planets
+    double simulationSpeed = 84600;            // at 84600, each IRL second = in-sim 1 Day
 
     std::vector<CelestialBody> bodies;
 

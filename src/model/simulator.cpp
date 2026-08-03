@@ -2,7 +2,7 @@
 
 void Simulator::simulate()
 {
-    float dt = GetFrameTime();
+    float dt = GetFrameTime() * world.simulationSpeed;
 
     for (auto& planet : world.bodies)
     {

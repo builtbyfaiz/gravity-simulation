@@ -4,7 +4,10 @@
 #include "controller/controller.h"
 
 int main() {
-  raylib::Window window(1280, 800, "");
+  
+  SetConfigFlags(FLAG_MSAA_4X_HINT);
+  raylib::Window window(1280, 800, "Gravity Simulation", FLAG_VSYNC_HINT);
+  
   SetTargetFPS(60);
   DisableCursor();
 
@@ -17,7 +20,7 @@ int main() {
   moon.radius  = 1.7374e6;
 
   moon.move({384400000, 0, 0}); 
-  moon.addVelocity({0, 1022, 0});
+  moon.addVelocity({0, 0, 1022});
 
   earth.model = LoadModelFromMesh(GenMeshSphere(1.0f, 16, 16));
   moon.model  = LoadModelFromMesh(GenMeshSphere(1.0f, 16, 16));
