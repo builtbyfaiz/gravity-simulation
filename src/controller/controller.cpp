@@ -2,13 +2,12 @@
 
 void Controller::handleInput()
 {
-
     deltaV = (Vector3){0, 0, 0};
 
     if (!world.camMode)
     {
-        if (IsKeyPressed(KEY_LEFT_SHIFT)) controlSpeed *= 2.0;
-        if (IsKeyPressed(KEY_SPACE))      controlSpeed /= 2.0;
+        if (IsKeyPressed(KEY_LEFT_SHIFT)) controlSpeed *= 3.0;
+        if (IsKeyPressed(KEY_SPACE))      controlSpeed /= 3.0;
 
         if (IsKeyDown(KEY_W)) deltaV.SetZ(-controlSpeed);
         if (IsKeyDown(KEY_S)) deltaV.SetZ(controlSpeed);
@@ -21,6 +20,9 @@ void Controller::handleInput()
 
         if (IsKeyPressed(KEY_T)) world.changeTarget();
     }
+
+    // //world scale, distance scale, time
+    // IJKL
 
     world.getSelected().addVelocity(deltaV);
 

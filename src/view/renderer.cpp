@@ -12,7 +12,7 @@ void Renderer::render()
         camera.Update(CAMERA_FREE);
 
     BeginDrawing();
-    ClearBackground(RAYWHITE);
+    ClearBackground(BLACK);
 
     camera.BeginMode();
 
@@ -29,7 +29,7 @@ void Renderer::render()
         // planet.model.transform = MatrixScale(renderRadius.x, renderRadius.y, renderRadius.z);
 
         DrawModelEx     (planet.model, renderPosition, {0, 1, 0}, 0.0, renderRadius, planet.color);
-        DrawModelWiresEx(planet.model, renderPosition, {0, 1, 0}, 0.0, renderRadius, BLACK); 
+        DrawModelWiresEx(planet.model, renderPosition, {0, 1, 0}, 0.0, renderRadius, WHITE); 
 
         std::cout << "Px:" << renderPosition.x << "\n";
         std::cout << "Py:" << renderPosition.y << "\n";
