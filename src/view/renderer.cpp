@@ -49,10 +49,12 @@ void Renderer::render()
     velocityText     = "Velocity: "    + toString(world.getSelected().velocity);
     accelerationText = "Aceleration: " + toString(world.getSelected().acceleration);
 
-    DrawText(massText.c_str(),         5,  30, 20, RED);
-    DrawText(positionText.c_str(),     5,  55, 20, RED);
-    DrawText(velocityText.c_str(),     5,  80, 20, RED);
-    DrawText(accelerationText.c_str(), 5, 105, 20, RED);
+    Font mono = LoadFontEx("C:/Windows/Fonts/consola.ttf", 20, 0, 0);
+    
+    DrawTextEx(mono, massText.c_str(),         {10,  30}, 20, 5, RED);
+    DrawTextEx(mono, positionText.c_str(),     {10,  55}, 20, 5, RED);
+    DrawTextEx(mono, velocityText.c_str(),     {10,  80}, 20, 5, RED);
+    DrawTextEx(mono, accelerationText.c_str(), {10, 105}, 20, 5, RED);
 
     EndDrawing();
 }

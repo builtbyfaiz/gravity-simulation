@@ -12,7 +12,8 @@ class Controller
 
     World &world;
 
-    float controlSpeed{0.05};
+    float controlStep{0.05};
+    float speedLevel{1};
 
     raylib::Vector3 deltaV{0, 0, 0};
 

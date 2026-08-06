@@ -6,27 +6,41 @@ void Controller::handleInput()
 
     if (!world.camMode)
     {
-        if (IsKeyPressed(KEY_LEFT_SHIFT)) controlSpeed *= 3.0;
-        if (IsKeyPressed(KEY_SPACE))      controlSpeed /= 3.0;
+        if (IsKeyPressed(KEY_T)) speedLevel++;
+        if (IsKeyPressed(KEY_G)) speedLevel--;
 
-        if (IsKeyDown(KEY_W)) deltaV.SetZ(-controlSpeed);
-        if (IsKeyDown(KEY_S)) deltaV.SetZ(controlSpeed);
+        if (IsKeyDown(KEY_W)) deltaV.SetZ(-controlStep);
+        if (IsKeyDown(KEY_S)) deltaV.SetZ(controlStep);
 
-        if (IsKeyDown(KEY_A)) deltaV.SetX(-controlSpeed);
-        if (IsKeyDown(KEY_D)) deltaV.SetX(controlSpeed);
+        if (IsKeyDown(KEY_A)) deltaV.SetX(-controlStep);
+        if (IsKeyDown(KEY_D)) deltaV.SetX(controlStep);
 
-        if (IsKeyDown(KEY_E)) deltaV.SetY(controlSpeed);
-        if (IsKeyDown(KEY_Q)) deltaV.SetY(-controlSpeed);
+        if (IsKeyDown(KEY_E)) deltaV.SetY(controlStep);
+        if (IsKeyDown(KEY_Q)) deltaV.SetY(-controlStep);
 
         if (IsKeyPressed(KEY_T)) world.changeTarget();
     }
+    
+    controlStep  = 1.0;                     // First, set control speed to a base speed.
+    controlStep *= powf(2.0f, speedLevel);  // Exponential speed growth
 
-    // //world scale, distance scale, time
-    // IJKL
+    // Temporary modifiers
+    if (IsKeyDown(KEY_LEFT_SHIFT))
+        controlStep *= 10.0f;
+
+    if (IsKeyDown(KEY_LEFT_CONTROL))
+        controlStep *= 0.1f;
 
     world.getSelected().addVelocity(deltaV);
 
     if (IsKeyPressed(KEY_C)) world.toggleCamMode();
+    
+    if (IsKeyPressed(KEY_U)) world.planetScale++;
+    if (IsKeyPressed(KEY_J)) world.planetScale--;
+    if (IsKeyPressed(KEY_I)) world.renderScale *= controlStep;
+    if (IsKeyPressed(KEY_K)) world.renderScale /= controlStep;
+    if (IsKeyPressed(KEY_O)) world.simulationScale *= controlStep;
+    if (IsKeyPressed(KEY_L)) world.simulationScale /= controlStep;
 }
 
 void Controller::update() {}

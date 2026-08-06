@@ -11,9 +11,9 @@ class World
 
     // Application Settings, I don't know if I should store them inside world here.
     bool   camMode         = true;
-    float  renderScale     = 1.0/30000000.0f;  // scale astronomical distances down to the screen
-    float  planetScale     = 1.0f;             // exaggerate planets
-    double simulationSpeed = 84600;            // at 84600, each IRL second = in-sim 1 Day
+    float  renderScale     = 1.0/30000000.0f;  // Scale astronomical distances down to the screen
+    float  planetScale     = 1.0f;             // Exaggerate planets
+    double simulationScale = 84600;            // At 84600, each IRL second = in-sim 1 Day
 
     std::vector<CelestialBody> bodies;
 
