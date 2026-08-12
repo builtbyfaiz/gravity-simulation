@@ -14,6 +14,7 @@ public:
                           CAMERA_PERSPECTIVE};
 
   Renderer(World &w) : world(w) {};
+  Font mono = LoadFontEx("C:/Windows/Fonts/consola.ttf", 20, 0, 0);
 
   void render();
 
