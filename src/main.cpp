@@ -5,7 +5,7 @@
 
 int main() {
   
-  SetConfigFlags(FLAG_MSAA_4X_HINT);
+  // SetConfigFlags(FLAG_MSAA_4X_HINT);
   raylib::Window window(1280, 800, "Gravity Simulation", FLAG_VSYNC_HINT);
   
   SetTargetFPS(60);
