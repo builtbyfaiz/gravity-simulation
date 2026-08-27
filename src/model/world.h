@@ -3,7 +3,6 @@
 
 #include <vector>
 
-
 class World
 {
   public:
@@ -23,5 +22,5 @@ class World
     
     CelestialBody &getSelected(); // Returns reference to selected celestial body
 
-    World() {}
+    World();
 };

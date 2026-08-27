@@ -6,8 +6,8 @@ void Controller::handleInput()
 
     if (!world.camMode)
     {
-        if (IsKeyPressed(KEY_T)) speedLevel++;
-        if (IsKeyPressed(KEY_G)) speedLevel--;
+        if (IsKeyPressed(KEY_R)) speedLevel++;
+        if (IsKeyPressed(KEY_F)) speedLevel--;
 
         if (IsKeyDown(KEY_W)) deltaV.SetZ(-controlStep);
         if (IsKeyDown(KEY_S)) deltaV.SetZ(controlStep);
